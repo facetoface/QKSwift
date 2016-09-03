@@ -17,7 +17,10 @@ class QKBasics: NSObject {
         floatTest()
         
         strTest()
+        
+        integerTest()
     }
+    
     
     func letOrVarTest() -> Void  {
         let maxinumNumberOfLoginAttempts = 10
@@ -53,6 +56,19 @@ class QKBasics: NSObject {
         //cstring = "chang is error,you must chang the type to var"
         
         
+    }
+    
+    
+    func integerTest()
+    {
+        print("UInt8.min = \(UInt8.min)")
+        print("UInt8.max = \(UInt8.max)")
+        print("UInt16.min = \(UInt16.min)")
+        print("UInt16.max = \(UInt16.max)")
+        print("UInt32.min = \(UInt32.min)")
+        print("UInt32.max = \(UInt32.max)")
+        print("UInt64.min = \(UInt64.min)")
+        print("UInt64.max = \(UInt64.max)")
     }
 
 }
