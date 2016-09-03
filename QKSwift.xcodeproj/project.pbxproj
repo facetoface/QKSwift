@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E447B081D7AE3B900E2CAC2 /* QKBasics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E447B071D7AE3B900E2CAC2 /* QKBasics.swift */; };
 		5E6ABCA31D7ABFFD00BB495A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6ABCA21D7ABFFD00BB495A /* AppDelegate.swift */; };
 		5E6ABCA51D7ABFFD00BB495A /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6ABCA41D7ABFFD00BB495A /* MasterViewController.swift */; };
 		5E6ABCA71D7ABFFD00BB495A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6ABCA61D7ABFFD00BB495A /* DetailViewController.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5E447B071D7AE3B900E2CAC2 /* QKBasics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QKBasics.swift; sourceTree = "<group>"; };
 		5E6ABC9F1D7ABFFC00BB495A /* QKSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QKSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E6ABCA21D7ABFFD00BB495A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E6ABCA41D7ABFFD00BB495A /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +78,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E447B061D7ACD0600E2CAC2 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				5E447B071D7AE3B900E2CAC2 /* QKBasics.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
 		5E6ABC961D7ABFFC00BB495A = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +109,7 @@
 		5E6ABCA11D7ABFFD00BB495A /* QKSwift */ = {
 			isa = PBXGroup;
 			children = (
+				5E447B061D7ACD0600E2CAC2 /* Foundation */,
 				5E6ABCA21D7ABFFD00BB495A /* AppDelegate.swift */,
 				5E6ABCA41D7ABFFD00BB495A /* MasterViewController.swift */,
 				5E6ABCA61D7ABFFD00BB495A /* DetailViewController.swift */,
@@ -261,6 +272,7 @@
 			files = (
 				5E6ABCA71D7ABFFD00BB495A /* DetailViewController.swift in Sources */,
 				5E6ABCA51D7ABFFD00BB495A /* MasterViewController.swift in Sources */,
+				5E447B081D7AE3B900E2CAC2 /* QKBasics.swift in Sources */,
 				5E6ABCA31D7ABFFD00BB495A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,6 +500,7 @@
 				5E6ABCCB1D7ABFFD00BB495A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5E6ABCCC1D7ABFFD00BB495A /* Build configuration list for PBXNativeTarget "QKSwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +509,7 @@
 				5E6ABCCE1D7ABFFD00BB495A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5E6ABCCF1D7ABFFD00BB495A /* Build configuration list for PBXNativeTarget "QKSwiftUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +518,7 @@
 				5E6ABCD11D7ABFFD00BB495A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
