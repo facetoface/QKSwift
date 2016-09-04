@@ -20,6 +20,12 @@ class MasterViewController: UITableViewController {
         
         QKBasics().test()
 
+        var myInt:QKInt
+        myInt = 100
+        print("myInt = \(myInt)")
+        myInt = 200
+        print("myInt = \(myInt)")
+        
         
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
