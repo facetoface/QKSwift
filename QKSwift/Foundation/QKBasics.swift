@@ -30,8 +30,8 @@ class QKBasics: NSObject {
         optionals()
     }
     
-    
-    func letOrVarTest() -> Void  {
+    func letOrVarTest() -> Void
+    {
         let maxinumNumberOfLoginAttempts = 10
         var currentLoginAttempt = 0
         print("常量",maxinumNumberOfLoginAttempts,"变量",currentLoginAttempt)
@@ -127,11 +127,34 @@ class QKBasics: NSObject {
     
     func optionals()
     {
+        //the nil in swift is not as same as in OC
+        //the nil is a pointer to a nonexistent object
+        //but it is a absence of value of a certain type in swift
         var money: Float? = 0
         money = Float("3218.5")
         print("money = \(money)")
         money = Float("ni hao");
         print("money = \(money)")
+        
+        var ocode: Int? = 404
+        print("ocode \(ocode)")
+        ocode = nil
+        print("ocode \(ocode)")
+        
+        var code: Int = 404
+        //code = nil code error
+        code = 200
+        print("code = \(code)")
+        
+        var str: String = "hello"
+        print("str = \(str)")
+        //str = nil this is error, default is not optional
+        str = ""
+        
+        var strNil: String?
+        print("strNil = \(strNil)")
+        strNil = "opential nil"
+        
         
     }
 
