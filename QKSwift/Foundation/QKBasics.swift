@@ -6,7 +6,7 @@
 //  Copyright © 2016年 一米阳光. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 typealias QKInt = UInt16
 
@@ -28,6 +28,8 @@ class QKBasics: NSObject {
         tuples()
         
         optionals()
+        
+        flowControl()
     }
     
     func letOrVarTest() -> Void
@@ -155,6 +157,71 @@ class QKBasics: NSObject {
         print("strNil = \(strNil)")
         strNil = "opential nil"
         
+        
+    }
+    
+    func flowControl()
+    {
+        print("\n------ for in -----")
+        for index in 1...5
+        {
+            print("index = \(index)");
+        }
+        
+        let names = ["Anmi","Jan","Rose"]
+        for _ in 1...5
+        {
+         print("an underscore in place of a variavle name for not need each value")
+        }
+        
+        for name in names
+        {
+            print("wecome to china,\(name)")
+        }
+        
+        let animal = ["spider":8,
+                      "ant":6,
+                      "cat":4]
+        for (animalName,legCount) in animal
+        {
+            print("\(animalName)s have \(legCount) legs")
+        }
+        
+        print("\n----- while lopps -----")
+        let finalSquare = 25
+       
+        var board = [Int](count: finalSquare + 1,repeatedValue: 0)
+        board[03] = +08; board[06] = +11; board[09] = +09; board[10] = +02
+        board[14] = -10; board[19] = -11; board[22] = -02; board[24] = -08
+        var square = 0
+        var diceRoll = 0
+        while square < finalSquare
+        {
+            
+            diceRoll += 1
+            if diceRoll == 7
+            {
+                diceRoll = 1
+            }
+            print("diceRoll \(diceRoll)")
+            square += diceRoll
+            print("square \(square)")
+            if square < board.count
+            {
+                square += board[square]
+                print("square < baoard.count  \(square)")
+            }
+        }
+        print("Game over!")
+        
+        square = 3
+        //repeat
+        repeat
+        {
+            print("squre = \(square)")
+            square -= 1;
+            
+        }while square > 0
         
     }
 

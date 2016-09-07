@@ -18,13 +18,16 @@ class MasterViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        QKBasics().test()
-
+        //QKInt can be used in ererywhere
         var myInt:QKInt
         myInt = 100
         print("myInt = \(myInt)")
         myInt = 200
         print("myInt = \(myInt)")
+        
+        QKBasics().test()
+
+        
         
         
         // Do any additional setup after loading the view, typically from a nib.
