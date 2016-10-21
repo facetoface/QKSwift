@@ -71,6 +71,16 @@ class QKStudyFunction: NSObject {
         //When printMathResult(_:_:_:) is called, it is passed the addTwoInts(_:_:) function, and the integer values 3 and 5. it calls the provided function with the values 3 and 5, and prints the result of 8.
         printMathResult(addTwoInts, 4, 5)
         
+        
+        //You can now use chooseStepFunction(backward:) to obtain a function that will step in one direction or the other:
+        var currentValue = 3
+        let moveNearToZero = chooseStepFunction(backward: currentValue > 0)
+        print("Counting to zero:")
+        while currentValue != 0 {
+            print("\(currentValue)...")
+            currentValue = moveNearToZero(currentValue);
+        }
+        print("zero !")
     }
     
     //The functin in the example below is called greet(person:),because that's what it does - it takes a person's name as input and returns a greeting for that person. To accomplish this, you define one input parameter - a String value called person - and a return type of String, which will contain a greeting for that person:
@@ -207,5 +217,28 @@ class QKStudyFunction: NSObject {
         print("Result:\(mathFunction(a,b))")
     }
     
+    //You can use a function type as the return type of another function. You do this by writing a complete function type immediately after the return arrow (->) of the returing function.
+    //The next example defines two simple functions called stepForward(_:) and stepBackward(_:). The stepForward(_:) and stepBackward(_:). The stepForward(_:) function returns a value one more than its input value, and the stepBackward(_:) function returns a value one less than its input value. Both functions have a type of (Int) -> Int:
+    func stepForward(_ input: Int) -> Int {
+        return input + 1
+    }
     
+    func stepBackWard(_ input: Int) -> Int {
+        return input - 1
+    }
+    //Here's a function called chooseStepFunction(backward:),whose return type is (Int) -> Int. The chooseStepFunction(backward:)function returns teh stepForward(_:) function or the stepBackward(_:) function based on a Boolean parameter called backward:
+    func chooseStepFunction(backward: Bool) -> (Int)->Int {
+        return backward ? stepForward: stepBackWard
+    }
+    
+    
+    //Nested Functions 
+    //All of the functions you have encountered so far in this chapter have been examples of global functions, which are defined at a global scope. You can also define functions inside the bodies of other functions, known as nested functions. 
+    //Nested functions are hidden from the outside wold by default, but can still be called and used by their enclosing function. An enclosing function can also return one of its nested functions to allow the nested function to be used in another scope. 
+    //You can rewrite the chooseStepFunction(backward:) example above to use and return nested functions:
+    func stepOther(backward: Bool) -> (Int) ->Int {
+        func stepForward(input: Int) -> Int {return input + 1}
+        func stepBackWard(input: Int) -> Int {return input - 1}
+        return backward ? stepBackWard : stepForward
+    }
 }
