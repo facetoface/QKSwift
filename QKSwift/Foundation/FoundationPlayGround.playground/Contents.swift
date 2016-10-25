@@ -43,3 +43,18 @@ let add = chooseStepFunction(backward: true)
 add(1)
 add(2)
 
+func printMathResult (_ mathFunction:(Int,Int) -> Int, _ a: Int, _ b: Int){
+    print("Result:\(mathFunction(a,b))")
+}
+
+func addTwoInts(_ a: Int, _ b: Int) -> Int {
+    return a + b
+}
+
+func multiplyTwoInts(_ a: Int, _ b: Int) -> Int {
+    return a * b
+}
+
+printMathResult(addTwoInts, 3, 4)
+printMathResult(multiplyTwoInts, 3, 4)
+

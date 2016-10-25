@@ -56,6 +56,28 @@ class QKFoundationGold: NSObject {
         print(add(2))
     }
     
+    //函数作为函数的参数
+    func functionAsParameter(){
+        
+        
+        //Function Types as Parameter Types
+        //You can use a function type such as (Int, Int) -> Int as a parameter type for another function. This enables you to leave some aspects of a function's implementation for the function's caller to provide when the function is called
+        //Here's an example to print the results of the math functions from avove:
+        func printMathResult (_ mathFunction:(Int,Int) -> Int, _ a: Int, _ b: Int){
+            print("Result:\(mathFunction(a,b))")
+        }
+        
+        func addTwoInts(_ a: Int, _ b: Int) -> Int {
+            return a + b
+        }
+        
+        func multiplyTwoInts(_ a: Int, _ b: Int) -> Int {
+            return a * b
+        }
+        
+        printMathResult(addTwoInts, 3, 4)
+        printMathResult(multiplyTwoInts, 3, 4)
+    }
     
     
 }
