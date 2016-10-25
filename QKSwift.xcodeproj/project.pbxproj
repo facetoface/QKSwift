@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		234145521DB8CCAA001AA20C /* QKStudyFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234145511DB8CCAA001AA20C /* QKStudyFunction.swift */; };
 		235A93691DBA2113003D3A14 /* QKStudyClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A93681DBA2113003D3A14 /* QKStudyClosure.swift */; };
+		23646B171DBEFE6F00E3414C /* QKFoundationGold.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23646B161DBEFE6F00E3414C /* QKFoundationGold.swift */; };
 		5E447B081D7AE3B900E2CAC2 /* QKBasics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E447B071D7AE3B900E2CAC2 /* QKBasics.swift */; };
 		5E6ABCA31D7ABFFD00BB495A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6ABCA21D7ABFFD00BB495A /* AppDelegate.swift */; };
 		5E6ABCA51D7ABFFD00BB495A /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6ABCA41D7ABFFD00BB495A /* MasterViewController.swift */; };
@@ -41,6 +42,7 @@
 		234145511DB8CCAA001AA20C /* QKStudyFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QKStudyFunction.swift; sourceTree = "<group>"; };
 		235A93681DBA2113003D3A14 /* QKStudyClosure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QKStudyClosure.swift; sourceTree = "<group>"; };
 		23646B151DBEF3FE00E3414C /* FoundationPlayGround.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = FoundationPlayGround.playground; sourceTree = "<group>"; };
+		23646B161DBEFE6F00E3414C /* QKFoundationGold.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QKFoundationGold.swift; sourceTree = "<group>"; };
 		5E447B071D7AE3B900E2CAC2 /* QKBasics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QKBasics.swift; sourceTree = "<group>"; };
 		5E6ABC9F1D7ABFFC00BB495A /* QKSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QKSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E6ABCA21D7ABFFD00BB495A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				234145511DB8CCAA001AA20C /* QKStudyFunction.swift */,
 				235A93681DBA2113003D3A14 /* QKStudyClosure.swift */,
 				23646B151DBEF3FE00E3414C /* FoundationPlayGround.playground */,
+				23646B161DBEFE6F00E3414C /* QKFoundationGold.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				5E6ABCA71D7ABFFD00BB495A /* DetailViewController.swift in Sources */,
 				5E6ABCA51D7ABFFD00BB495A /* MasterViewController.swift in Sources */,
 				5E447B081D7AE3B900E2CAC2 /* QKBasics.swift in Sources */,
+				23646B171DBEFE6F00E3414C /* QKFoundationGold.swift in Sources */,
 				235A93691DBA2113003D3A14 /* QKStudyClosure.swift in Sources */,
 				5E6ABCA31D7ABFFD00BB495A /* AppDelegate.swift in Sources */,
 				234145521DB8CCAA001AA20C /* QKStudyFunction.swift in Sources */,
