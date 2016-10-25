@@ -40,6 +40,7 @@
 /* Begin PBXFileReference section */
 		234145511DB8CCAA001AA20C /* QKStudyFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QKStudyFunction.swift; sourceTree = "<group>"; };
 		235A93681DBA2113003D3A14 /* QKStudyClosure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QKStudyClosure.swift; sourceTree = "<group>"; };
+		23646B151DBEF3FE00E3414C /* FoundationPlayGround.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = FoundationPlayGround.playground; sourceTree = "<group>"; };
 		5E447B071D7AE3B900E2CAC2 /* QKBasics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QKBasics.swift; sourceTree = "<group>"; };
 		5E6ABC9F1D7ABFFC00BB495A /* QKSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QKSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E6ABCA21D7ABFFD00BB495A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +89,7 @@
 				5E447B071D7AE3B900E2CAC2 /* QKBasics.swift */,
 				234145511DB8CCAA001AA20C /* QKStudyFunction.swift */,
 				235A93681DBA2113003D3A14 /* QKStudyClosure.swift */,
+				23646B151DBEF3FE00E3414C /* FoundationPlayGround.playground */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";

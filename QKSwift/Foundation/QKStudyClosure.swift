@@ -153,6 +153,24 @@ class QKStudyClosure: NSObject {
             return incrementer
         }
         
+        func myFunction(forIncrement amount: Int) ->(_ n1: Int) ->Int{
+            
+            func ahah(number1 number: Int) -> Int{
+                
+                return number
+                
+            }
+            return ahah;
+            
+        }
+        
+        let myTest = myFunction(forIncrement: 10)
+        print(myTest(3))
+        print(myTest(4))
+        
+        print(myFunction(forIncrement: 1))
+        
+        
         //The return type of makeIncrementer is () -> Int. This means that it returns a function, rather than a simple value. The function it returns has no parameters, and returns an Int value each time it is called. 
         //The makeIncrementer(forIncrement:) function defines an integer variable called runningTotal, to store the current running total of the incrementer that will be returned. This variable is initialized with a value of 0.
         //The makeIncrementer(forIncrement:) function has a single Int parameter with an argument lable of forIncrement, and a parameter name of amount. The argument value passed to this parameter specifies how much runningToTal defines a nested function called incrementer,which performs the actual incrementing. This function simply adds amount to runningTotal,and returns the result.
@@ -166,6 +184,8 @@ class QKStudyClosure: NSObject {
         
         //This example sets a constant called incrementByTen to refer to an incrementer function that adds 10 to its runningTotal variable each time it is called. Calling the function multiple times shows this behavior in action:
         print(incrementByTen())
+        
+        //The incrementer() function doesn't have any parameters, and yet it refers to runningTotal and amount from within its function body. It does this by capturing a reference to runningTotal and amount from the surrounding function and using them within its own function body. Capturing by reference ensures that runningTotal and amount do not disappear when the call to makeIncrementer ends, and also ensures that runningTotal is available the next time the incrementer function is called.
         
         
     }
