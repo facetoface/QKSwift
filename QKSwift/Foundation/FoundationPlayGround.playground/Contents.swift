@@ -58,3 +58,50 @@ func multiplyTwoInts(_ a: Int, _ b: Int) -> Int {
 printMathResult(addTwoInts, 3, 4)
 printMathResult(multiplyTwoInts, 3, 4)
 
+func doSomething() {
+    myEscapingClosure(completionHander: { (amount1) -> Int in
+        
+        return amount1 * 10
+        
+        }, amount: 10)
+    
+}
+
+func myEscapingClosure(completionHander: @escaping (_ amount: Int) ->Int, amount: Int){
+    print("amount : \(completionHander(amount))")
+}
+
+doSomething()
+
+var customersInLine = ["Chiris","Alex","Ewa","Barry","Daniella"]
+
+//func sever(customer customerProvider: ()->String){
+//    print("Now serving \(customerProvider())!")
+//}
+//
+//sever { () -> String in
+//    
+//    customersInLine.remove(at: 0)
+//}
+//
+//sever {
+//    customersInLine.remove(at: 1)
+//}
+
+//func serve(customer customerProvider:@autoclosure () -> String){
+//    print("Now serving \(customerProvider())!")
+//}
+//serve(customer: customersInLine.remove(at: 0))
+
+var customerProviders: [() -> String] = []
+func collectCustomerProviders(_ customerProvider: @autoclosure @escaping () -> String){
+    customerProviders.append(customerProvider)
+}
+collectCustomerProviders(customersInLine.remove(at: 0))
+collectCustomerProviders(customersInLine.remove(at: 0))
+print("Collected \(customerProviders.count) closures")
+for customerProvider in customerProviders{
+    print("Now server \(customerProvider())")
+}
+
+

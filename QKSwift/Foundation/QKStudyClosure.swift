@@ -12,6 +12,7 @@ import UIKit
 
 class QKStudyClosure: NSObject {
     
+    var x = 10
     func syntaxClosure(){
         
         // The example below shows a closure expression version of the backward(_:_:) function from earlier:
@@ -69,8 +70,8 @@ class QKStudyClosure: NSObject {
         //There's actually an even shoter way to write the closure expression above. Swift's String type defines its string=specific implementation of the greater-than operator (>) as a method that has two parameters of type String, and returns a value of type Bool. This exactly matches the method type needed by the sorted(by:) method. Therefore, you can simply pass in the greater-than operator, and Swift will infer that you want to use its string-specific implementation:
         reversedNames = names.sorted(by: >)
         print("reversedNames : \(reversedNames)")
-
-    
+        
+        
     }
     
     func trailingClosures(){
@@ -82,11 +83,11 @@ class QKStudyClosure: NSObject {
         }
         
         someFunctionThatTakesAClosure(closure:{
-                
+            
         })
         
         someFunctionThatTakesAClosure() {
-                
+            
         }
         var reversedNames = names.sorted(){ $0 > $1}
         print("reversedNames : \(reversedNames)")
@@ -129,7 +130,7 @@ class QKStudyClosure: NSObject {
         //The process is repeated until number is equal to 0, at which point string is returned by the closure,and is added to the output array by the map(_:)method.
         //The use of trailing closure syntax in the example above neatly encapsulates the closure's functionality immediately after the function that closure supports,without needing to wrap the entire closure within the map:(_:) method's outer parentheses.
         
- 
+        
         
         
     }
@@ -171,7 +172,7 @@ class QKStudyClosure: NSObject {
         print(myFunction(forIncrement: 1))
         
         
-        //The return type of makeIncrementer is () -> Int. This means that it returns a function, rather than a simple value. The function it returns has no parameters, and returns an Int value each time it is called. 
+        //The return type of makeIncrementer is () -> Int. This means that it returns a function, rather than a simple value. The function it returns has no parameters, and returns an Int value each time it is called.
         //The makeIncrementer(forIncrement:) function defines an integer variable called runningTotal, to store the current running total of the incrementer that will be returned. This variable is initialized with a value of 0.
         //The makeIncrementer(forIncrement:) function has a single Int parameter with an argument lable of forIncrement, and a parameter name of amount. The argument value passed to this parameter specifies how much runningToTal defines a nested function called incrementer,which performs the actual incrementing. This function simply adds amount to runningTotal,and returns the result.
         //When considered in isolation,the nested incrementer() function might seem unsual
@@ -186,7 +187,97 @@ class QKStudyClosure: NSObject {
         print(incrementByTen())
         
         //The incrementer() function doesn't have any parameters, and yet it refers to runningTotal and amount from within its function body. It does this by capturing a reference to runningTotal and amount from the surrounding function and using them within its own function body. Capturing by reference ensures that runningTotal and amount do not disappear when the call to makeIncrementer ends, and also ensures that runningTotal is available the next time the incrementer function is called.
+        //If you assign a closure to a property of a class instance,and the closure captures that instance by referring to the instance or its members,you will create a strong reference cycle between the closure and the instance. Swift uses capture lists to break these strong reference cycles.
         
+        //Closures Are Reference Types
+        //In the example above, incrementBySeven and incrementByTen are constants, but the closures these constants refer to are still able to increment the runningTotal variables that they have captured. This is because functions and closures are reference types.
+        //Whenever you assign a function or a closure to a constant or a variable, you are actually setting that constant or variable to be a reference to the function or closure. In the example above, it is the choice of closure thate incrementByTen refers to that is constant, and not the contents of the closure itself.
+        //This also means that if you assign a closure two different constants or variables, both of those constants or variables will refer to the same closure:
+        let alsoIncrementByTen = incrementByTen;
+        print(alsoIncrementByTen())
+        
+        //Escaping Closures
+        //A closure is said to escape a function when the closure is passed as an argument to the function, but is called after the function returns. When you declare a function that takes a closure as one of its parameters, you can write @escaping before the parameter's type to indicate that the closure is allowed to escape.
+        //One way that a closure can escape is by being stored in a variable that is defined outside the function. As an example, many functions that start an asynchronous operation take a closure argument as a completion handler.The function returns after it starts the operation, but the closure isn't called until the operation is completed - the closure needs to escape, to be called later. For example:
+        var completionHandlers: [() -> Void] = []
+        func someFunctionWithEscapingClosure(completionHander: @escaping () -> Void){
+            completionHandlers.append(completionHander)
+        }
+        //The someFunctionWithEscapingClosure(_:) fuction takes a closure as its argument and adds it to an array that's declared outside the function. If you didn't mark the parameter of the function with @escaping, you would get a complier error.
+        //Marking a closure with @escaping means you have to refer to self explicitly within the closure. For example, in the code below, the closure passed to someFunctionWithEscapingClosure(_:) is an escaping closure,which means it needs to refer to self explicitly. In contrast, the closure passed to someFunctionWithNonescapingClosure(_:) is a noneescaping closure,which means it can refer to self implicitly.
+        func someFunctionWithNonescapingClosure(closure: ()->Void){
+            closure()
+        }
+        
+      
+        func doSomething() {
+            someFunctionWithEscapingClosure { self.x = 100 }
+            someFunctionWithNonescapingClosure { x = 200 }
+            myEscapingClosure(completionHander: { (amount1) -> Int in
+                
+                return amount1 * 10
+                
+                }, amount: 10)
+            
+        }
+        
+        func myEscapingClosure(completionHander: @escaping (_ amount: Int) ->Int, amount: Int){
+            print("amount : \(completionHander(amount))")
+        }
+        
+        //Autoclosures
+        //An autoclosure is a closure that  is automatically created to wrap an expression that's being passed as an argument to a function. It doesn't take any arguments, and when it's called, it returns the value of the expression that's wrapped inside of it. This syntactic convenience lets you omit brances around a function's parameter by writing a normal expression instead of an explicit closure.
+        //It's common to call functions that take autoclosures, but it's not common to implement that kind of function. For example, the assert(condition:message:file:line:) function takes an autoclosure for its condition and message parameters; its condition parameter is evaluated only in debug builds and its message parameter is evaluated only if condition is false.
+        //An autoclosure lets you delay evaluation, because the code inside isn't run until you call the closure. Delaying evaluation is useful for code that has side effects or is computationally expensive, because it lets you control when that code is evaluated. The code below shows how a closure delays evaluation.
+        func autoclosures(){
+            var customersInLine = ["Chiris","Alex","Ewa","Barry","Daniella"]
+            print(customersInLine.count)
+            let customerProvider = { customersInLine.remove(at: 0)}
+            print(customersInLine.count)
+            print("Now serving \(customerProvider())!")
+            print(customersInLine.count)
+            
+            //Even though the first element of the customersInline array is removed by the code inside the closure, the array element isn't removed until the closure is actually called. itf the closure is never called, the expression inside the closure is never evaluated, which means the array element is never removed.Note that the type of customerProvider is not String but ()-> String  - a function with no parameters that returns a string.
+            
+            //You get the same behavior of delayed evaluation when you pass a closure as an argument to a function.
+            
+            func sever(customer customerProvider: ()->String){
+                print("Now serving \(customerProvider())!")
+            }
+            
+            sever { () -> String in
+                //里边没有参数 写上一个空参数和返回值在后边也没有用
+                //所以一般就用下边那种了
+                customersInLine.remove(at: 0)
+            }
+            sever {
+                customersInLine.remove(at: 0)
+            }
+            //The serve(customer:) function in the listing above takes an explicit closure that returns a customer's name. The version of sever(customer:) below performs the same operation but, instead of taking an explicit closure, it takes an autoclosure by marking its parameter's type with the Aautoclosure attribute. Now you can call the function as if it took a String argument instead of a closure. The argument is automatically converted to a closure, because the customerProvider parameter's type is marked with the @autoclosure attribute.
+            
+            func serve(customer customerProvider: @autoclosure () -> String){
+                print("Now serving \(customerProvider())!")
+            }
+            
+            //Overusing autoclosures can make your code hard to understand. The context and function name should make it clear that evaluation is being deferred.
+            
+            //If you want an autoclosure that is allowed to escape. use both the @autoclosure and @escaping attibutes. The @escaping attibute is described above in Escaping Closures.
+            
+            var customerProviders: [() -> String] = []
+            func collectCustomerProviders(_ customerProvider: @autoclosure @escaping () -> String){
+                customerProviders.append(customerProvider)
+            }
+            collectCustomerProviders(customersInLine.remove(at: 0))
+            collectCustomerProviders(customersInLine.remove(at: 0))
+            
+        }
+      
         
     }
 }
+
+
+
+
+
+
