@@ -270,6 +270,8 @@ class QKStudyClosure: NSObject {
             collectCustomerProviders(customersInLine.remove(at: 0))
             collectCustomerProviders(customersInLine.remove(at: 0))
             
+            //In the code avove, instead of calling the closure passed to it as its customerProviders array. The array is declared outside the scope of the function, which means the closures in the array can be executed after the function returens. As a result, the value of the customerProvider argument must be allowed to escape the function's scope.
+            
         }
       
         
