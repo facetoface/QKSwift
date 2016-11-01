@@ -10,7 +10,7 @@ import Foundation
 
 typealias QKInt = UInt16
 
-class QKBasics: NSObject {
+class QKBasics: QKBaseViewController {
     
     
     func test()

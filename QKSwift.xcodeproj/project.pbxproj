@@ -46,7 +46,7 @@
 		235A93681DBA2113003D3A14 /* QKStudyClosure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QKStudyClosure.swift; sourceTree = "<group>"; };
 		23646B151DBEF3FE00E3414C /* FoundationPlayGround.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = FoundationPlayGround.playground; sourceTree = "<group>"; };
 		23646B161DBEFE6F00E3414C /* QKFoundationGold.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QKFoundationGold.swift; sourceTree = "<group>"; };
-		23FB3D701DC83F75005A40DB /* QKSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QKSwift-Bridging-Header.h"; sourceTree = "<group>"; };
+		23FB3D701DC83F75005A40DB /* QKSwiftHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QKSwiftHeader.h; sourceTree = "<group>"; };
 		23FB3D711DC83F75005A40DB /* QKBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKBaseViewController.h; sourceTree = "<group>"; };
 		23FB3D721DC83F75005A40DB /* QKBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKBaseViewController.m; sourceTree = "<group>"; };
 		5E447B071D7AE3B900E2CAC2 /* QKBasics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QKBasics.swift; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 				232908FD1DC3685900727A40 /* QKStudyEnum.swift */,
 				23FB3D711DC83F75005A40DB /* QKBaseViewController.h */,
 				23FB3D721DC83F75005A40DB /* QKBaseViewController.m */,
-				23FB3D701DC83F75005A40DB /* QKSwift-Bridging-Header.h */,
+				23FB3D701DC83F75005A40DB /* QKSwiftHeader.h */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -451,7 +451,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nvxie.QKSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "QKSwift/Foundation/QKSwift-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = QKSwift/Foundation/QKSwiftHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -466,7 +466,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nvxie.QKSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "QKSwift/Foundation/QKSwift-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = QKSwift/Foundation/QKSwiftHeader.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
