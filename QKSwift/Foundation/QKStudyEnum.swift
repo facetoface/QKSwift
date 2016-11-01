@@ -166,7 +166,39 @@ class QKStudyEnum: NSObject {
 
     //Initializing from a Raw value 
     //If you define an enumeration with a raw-value type, the enumeration automatically receives an initializer that takes a value of the raw value's type (as a parameter called rawValue) and returns either an enumeration case or nil. You can use this initializer to try to create a new instance of the enumeration.
-    
-    
+    //Recursive Enumerations
+    //A recursive enumeration is an enumeration that has another instance of the enumeration as the associated value for one or more of the enumeration cases. You indicate that an enumeration case is recursive by writing indirect before it, which tells the compiler to insert the necessary layer of indirection.
+    //For example, here is an enumeration that stores simple arithmetic expression:
+    enum ArithmeticExpression {
+        case number(Int)
+        indirect case addition(ArithmeticExpression,ArithmeticExpression)
+        indirect case multiplication(ArithmeticExpression,ArithmeticExpression)
+    }
+    //This enumeration can store three kinds of arithmetic expressions: a plain number, the addition of two expressions, and the multiplication of two expressions. The addition and multiplication cases have assocaated values that are also arithmetic expressions - htese associated values make it possible to nest expressions. For example, the expression (5 + 4) *2 has a number on the right hand side of the multiplication and another expression on the left hand side of the multiplication. Because the data is nested, the enumeration used to store the data also needs to support nesting - this means the enumeration needs to be recursive. The code below shows the ArithmeticExpression recursive enumeration being created for (5 + 4)*2:
+    func recursive(){
+        
+        let five = ArithmeticExpression.number(5)
+        let four = ArithmeticExpression.number(4)
+        let sum = ArithmeticExpression.addition(five, four)
+        let product = ArithmeticExpression.multiplication(sum, ArithmeticExpression.number(2))
+        print("sum \(sum) product \(product)")
+        
+        //A recursive function is a straightforward way to work with data that has a recursive structure. For example, here's a function that evaluates an arithmetic expression:
+        func evaluate(_ expression: ArithmeticExpression) -> Int {
+            switch expression {
+            case let .number(value):
+                return value
+            case let .addition(left, right):
+                return evaluate(left) + evaluate(right)
+            case let .multiplication(left,right):
+                return evaluate(left) * evaluate(right)
+                
+            }
+            
+            print(evaluate(product))
+            //This function evaluates a plain number by simply returing the associated value. It evaluates an addition or multiplication by evaluating the expression on the left hand side, evaluating the expression on the right hand side, and then adding them or multiplying them.
+        }
+        
+    }
 
 }
