@@ -25,6 +25,24 @@ import UIKit
 //Class have additional capabilities that stuctures do not:
 //Inheritance enables one class to inherit the characteristics of another.
 //Type casting enables you to check and interpret the type of a class instance at runtime.
+//Deinitializers enable an instance of a class to free up any resources it has assigned.
+//Reference counting allows more than one reference to a class instance.
+//Classes and structures have a similare definition syntax. You introduce classes with he class keywork and structures with the struct keyword. Both place place entire definition within a pair of brances
+//NOTE Whenever you define a new class or structure ,you effectively define a brand new Swift type. Give types UpperCameCase names(such as SomeClass and SomeStructure here) to match the capitalization of standard Swift types (suche as String, Int, and Bool). Conversely, always give properties and methods loverCameCase names (such as frameRate and incrementCount_ to differentiate them from type names.
+//Here's example of structure definition and a class definition:
+struct Resolution {
+    var  width = 0
+    var  height = 0
+}
+
+class VideoModel {
+    var resolution = Resolution()
+    var interlaced = false
+    var frameRate = 0.0
+    var name: String?
+}
+//The example above defines a new structure called Resolution, to describe a pixel-based display resolution. This structure has two stored properties called width and height. Stored properties are constants or variables that are bundled up and stored as part of the class or structure. Thes two properties are inferred to be of type Int by setting them to an initial integer value of 0.
+//The example above also defines a new class called VideoMode, to describe a specific video mode for video display. This class has four variable stored properties. The first, resolution, is initialized with a new Resolution stucture instance, which infers a property type of Resolution, For the other three properties, new VideoMode instances will be initialized with an interlaced setting of false(meaning "noninterlaced video"), a playback frame rate of 0.0,
 
 class QKStudyClass: NSObject {
 
